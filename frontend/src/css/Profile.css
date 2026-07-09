@@ -1,0 +1,178 @@
+.profile-page {
+  min-height: 100vh;
+  background-color: #000;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(229, 160, 13, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(229, 160, 13, 0.05) 0%, transparent 40%);
+  padding: 6rem 1.5rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 500px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #e5a00d;
+}
+
+.profile-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #e5a00d;
+  padding: 4px;
+  background: #000;
+  box-shadow: 0 0 25px rgba(229, 160, 13, 0.2);
+}
+
+.profile-info-header h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.role-badge {
+  display: inline-block;
+  background: #e5a00d;
+  color: black;
+  padding: 0.35rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.info-item {
+  background: #1a1a1a;
+  border: 1px solid #282828;
+  padding: 1.25rem;
+  border-radius: 12px;
+}
+
+.info-item:hover {
+  border-color: #e5a00d;
+  transform: translateX(8px);
+  background: #222;
+}
+
+.info-icon {
+  color: #e5a00d;
+}
+
+.info-label {
+  color: #666;
+  font-weight: 600;
+}
+
+.info-value {
+  color: white;
+  font-weight: 500;
+}
+
+.edit-btn {
+  background: #fff;
+  color: #000;
+  padding: 0.9rem;
+}
+
+.edit-btn:hover {
+  background: #f0f0f0;
+  box-shadow: 0 10px 15px rgba(255, 255, 255, 0.1);
+}
+
+.logout-btn-profile {
+  background: rgba(229, 160, 13, 0.1);
+  color: #e5a00d;
+  border: 1px solid rgba(229, 160, 13, 0.3);
+  padding: 0.9rem;
+}
+
+.logout-btn-profile:hover {
+  background: #e5a00d;
+  color: black;
+}
+
+/* Compact profile dropdown/card styles */
+.compact-card {
+  width: 320px;
+  background: linear-gradient(180deg, #0f0f0f 0%, #111 100%);
+  border-radius: 12px;
+  padding: 18px;
+  color: #ddd;
+}
+
+.compact-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* removed small initial avatar - only main avatar shown */
+
+.compact-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid rgba(229,160,13,0.08);
+  display: block;
+  margin: 6px auto 0 auto;
+}
+
+.compact-name {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.display-name {
+  color: #e5a00d;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.display-username {
+  color: #cfcfcf;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+.section-title {
+  margin-top: 16px;
+  color: #777;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.account-list { display:flex; flex-direction:column; gap:8px; margin-top:10px; }
+.account-item { background: transparent; border: none; color: #ddd; text-align: left; padding: 10px 12px; border-radius: 8px; display:flex; align-items:center; gap:10px; font-weight:600; }
+.account-item:hover { background: rgba(229,160,13,0.06); color: #fff; }
+.item-icon { color: #e5a00d; }
+
+.divider { height:1px; background: rgba(255,255,255,0.06); margin:12px 0; }
+
+.signout-item { width:100%; background: transparent; border:none; color:#ddd; padding:12px; display:flex; align-items:center; gap:10px; font-weight:700; }
+.signout-item:hover { background: rgba(255,0,0,0.06); color: #fff; }
+
+.edit-form input { width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #222; background:#0c0c0c; color:#eee }
+.edit-actions { display:flex; gap:8px; margin-top:8px }
+

@@ -1,0 +1,119 @@
+:root {
+  --popover-bg: #101010;
+  --popover-border: rgba(255,255,255,0.08);
+  --popover-text: #f5f5f5;
+  --popover-muted: #999;
+  --popover-accent: #e5a00d;
+}
+
+.profile-popover {
+  position: relative;
+}
+
+.popover-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 280px;
+  background: rgba(10, 10, 10, 0.98);
+  border: 1px solid var(--popover-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  z-index: 2000;
+  padding: 16px;
+}
+
+.popover-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.popover-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--popover-accent);
+}
+
+.popover-name {
+  color: var(--popover-text);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.popover-username {
+  color: var(--popover-muted);
+  font-size: 0.83rem;
+  margin-top: 4px;
+}
+
+.popover-section {
+  color: var(--popover-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+.popover-item,
+.popover-signout {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border: none;
+  background: transparent;
+  color: var(--popover-text);
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.popover-item:hover,
+.popover-signout:hover {
+  background: rgba(229, 160, 13, 0.08);
+}
+
+.popover-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 12px 0;
+}
+
+.popover-signout {
+  color: #fff;
+  font-weight: 700;
+}
+
+.nav-avatar-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--popover-accent);
+}
+
+.nav-avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(229,160,13,0.25);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-transform: uppercase;
+}

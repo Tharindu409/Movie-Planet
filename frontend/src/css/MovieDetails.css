@@ -1,0 +1,394 @@
+.movie-details-container {
+  min-height: 100vh;
+  color: white;
+  position: relative;
+  background-color: #0b0d14;
+}
+
+.details-backdrop {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0b0d14 0%, rgba(11, 13, 20, 0.4) 50%, rgba(11, 13, 20, 0.8) 100%);
+}
+
+.details-content {
+  max-width: 1200px;
+  margin: -250px auto 0;
+  padding: 0 2rem 4rem;
+  position: relative;
+  z-index: 10;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+}
+
+.main-info {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.poster-container {
+  flex-shrink: 0;
+}
+
+.details-poster {
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-info {
+  flex: 1;
+}
+
+.text-info h1 {
+  font-size: 3.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #ffcc00;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.rating { color: #ffcc00; }
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.genre-tag {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.overview {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+}
+
+.trailer-btn {
+  display: inline-block;
+  background: #e50914;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.trailer-btn:hover {
+  background: #f40612;
+  transform: translateY(-2px);
+}
+
+.cast-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.cast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.cast-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cast-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cast-name {
+  font-weight: bold;
+  margin: 0.8rem 0 0.2rem;
+  padding: 0 0.5rem;
+}
+
+.cast-character {
+  font-size: 0.85rem;
+  color: #999;
+  padding: 0 0.5rem 1rem;
+}
+
+@media (max-width: 900px) {
+  .main-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .text-info h1 {
+    font-size: 2.5rem;
+  }
+  
+  .meta, .genres {
+    justify-content: center;
+  }
+  
+  .details-content {
+    margin-top: -150px;
+  }
+}
+
+/* Review Section */
+.review-section {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.review-form-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.rating-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rating-select {
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.review-form textarea {
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 12px;
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.review-form textarea:focus {
+  outline: none;
+  border-color: #ffcc00;
+}
+
+.submit-review-btn {
+  background: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.submit-review-btn:hover {
+  background: #ffdb4d;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(255, 204, 0, 0.3);
+}
+
+.reviews-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.reviewer-name {
+  font-weight: 700;
+  color: #ffcc00;
+}
+
+.reviewer-stars {
+  letter-spacing: 2px;
+}
+
+.review-text {
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.review-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.owner-actions {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.edit-link, .delete-link {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-link {
+  color: #e5a00d;
+}
+
+.delete-link {
+  color: #ff4d4d;
+}
+
+.edit-link:hover, .delete-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.edit-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.edit-textarea {
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid #333;
+  padding: 1rem;
+  border-radius: 10px;
+  min-height: 100px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.edit-textarea:focus {
+  outline: none;
+  border-color: #e5a00d;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.save-btn, .cancel-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.save-btn {
+  background: #e5a00d;
+  color: black;
+}
+
+.save-btn:hover {
+  background: #ffcc00;
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: #888;
+  border: 1px solid #333;
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}

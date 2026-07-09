@@ -1,0 +1,183 @@
+.collections-page {
+  min-height: 100vh;
+  background-color: #000;
+  padding: 100px 2rem 4rem;
+  color: white;
+}
+
+.collections-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.collections-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.create-coll-btn {
+  background: #e5a00d;
+  color: black;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.collection-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.collection-card:hover {
+  border-color: #e5a00d;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(229, 160, 13, 0.1);
+}
+
+.coll-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: #e5a00d;
+}
+
+.coll-desc {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.coll-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Create Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1.5rem;
+}
+
+.modal-content {
+  background: #111;
+  border: 1px solid #333;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.coll-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.coll-input, .coll-textarea {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: inherit;
+}
+
+.coll-input:focus, .coll-textarea:focus {
+  outline: none;
+  border-color: #e5a00d;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.submit-btn {
+  background: #e5a00d;
+  color: black;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  flex: 1;
+}
+
+.cancel-modal-btn {
+  background: transparent;
+  color: #888;
+  border: 1px solid #333;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  flex: 1;
+}
+
+/* Movie Card in Collection */
+.coll-movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.coll-movie-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.remove-coll-movie {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.7);
+  color: #ff4d4d;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 5;
+}
