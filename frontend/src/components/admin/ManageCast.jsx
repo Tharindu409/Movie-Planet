@@ -17,7 +17,7 @@ const ManageCast = () => {
     const fetchCast = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:5000/admin/cast", {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/cast`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCast(res.data);
@@ -33,11 +33,11 @@ const ManageCast = () => {
             const castData = { ...form, moviesAppearedIn: form.moviesAppearedIn.split(",").map(m => m.trim()) };
             
             if (editingCast) {
-                await axios.put(`http://localhost:5000/admin/cast/${editingCast._id}`, castData, {
+                await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/cast/${editingCast._id}`, castData, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             } else {
-                await axios.post("http://localhost:5000/admin/cast", castData, {
+                await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/cast`, castData, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             }
@@ -62,7 +62,7 @@ const ManageCast = () => {
         if (!window.confirm("Delete this profile?")) return;
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:5000/admin/cast/${id}`, {
+            await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/cast/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchCast();

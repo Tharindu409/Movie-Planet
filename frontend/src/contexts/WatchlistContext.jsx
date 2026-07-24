@@ -21,7 +21,7 @@ export const WatchlistProvider = ({ children }) => {
     const fetchWatchlist = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get("http://localhost:5000/users/watchlist", {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/users/watchlist`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setWatchlist(response.data);
@@ -33,7 +33,7 @@ export const WatchlistProvider = ({ children }) => {
     const addToWatchlist = async (movie) => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post("http://localhost:5000/users/watchlist", 
+            const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/users/watchlist`, 
                 {
                     id: movie.id,
                     title: movie.title,
@@ -53,7 +53,7 @@ export const WatchlistProvider = ({ children }) => {
     const removeFromWatchlist = async (movieId) => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.delete(`http://localhost:5000/users/watchlist/${movieId}`, {
+            const response = await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/users/watchlist/${movieId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setWatchlist(response.data.watchlist);

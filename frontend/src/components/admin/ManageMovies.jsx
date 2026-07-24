@@ -18,7 +18,7 @@ const ManageMovies = () => {
     const fetchMovies = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:5000/admin/movies", {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/movies`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setMovies(res.data);
@@ -34,11 +34,11 @@ const ManageMovies = () => {
             const movieData = { ...form, genre: form.genre.split(",").map(g => g.trim()) };
             
             if (editingMovie) {
-                await axios.put(`http://localhost:5000/admin/movies/${editingMovie._id}`, movieData, {
+                await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/movies/${editingMovie._id}`, movieData, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             } else {
-                await axios.post("http://localhost:5000/admin/movies", movieData, {
+                await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/movies`, movieData, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             }
@@ -64,7 +64,7 @@ const ManageMovies = () => {
         if (!window.confirm("Delete this movie?")) return;
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:5000/admin/movies/${id}`, {
+            await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/movies/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchMovies();

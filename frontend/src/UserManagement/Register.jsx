@@ -26,7 +26,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/users/register", {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/users/register`, {
         name: form.name,
         email: form.email,
         password: form.password
@@ -113,4 +113,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Register;

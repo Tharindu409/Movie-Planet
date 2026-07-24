@@ -16,7 +16,7 @@ const ManageUsers = () => {
     const fetchUsers = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:5000/admin/users", {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/users`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setUsers(res.data);
@@ -30,11 +30,11 @@ const ManageUsers = () => {
         try {
             const token = localStorage.getItem("token");
             if (editingUser) {
-                await axios.put(`http://localhost:5000/admin/users/${editingUser._id}`, form, {
+                await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/users/${editingUser._id}`, form, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             } else {
-                await axios.post("http://localhost:5000/admin/users", form, {
+                await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/users`, form, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
             }
@@ -58,7 +58,7 @@ const ManageUsers = () => {
         if (!window.confirm("Delete this user account?")) return;
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:5000/admin/users/${id}`, {
+            await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/admin/users/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchUsers();

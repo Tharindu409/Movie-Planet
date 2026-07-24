@@ -46,7 +46,7 @@ const Login = () => {
   const handleGoogleResponse = async (response) => {
     try {
       const idToken = response.credential;
-      const res = await axios.post('http://localhost:5000/users/google', { idToken });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/users/google`, { idToken });
       const { token, user } = res.data;
       login(user, token);
       if (user && user.role === 'admin') navigate('/admin'); else navigate('/Home');
@@ -63,7 +63,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/users/login", form);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/users/login`, form);
       const { token, user } = response.data;
 
       login(user, token);

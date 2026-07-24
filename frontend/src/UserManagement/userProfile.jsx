@@ -23,7 +23,7 @@ const UserProfile = () => {
                     return;
                 }
 
-                const res = await axios.get("http://localhost:5000/users/profile", {
+                const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/users/profile`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -64,7 +64,7 @@ const UserProfile = () => {
             const token = localStorage.getItem('token');
             const payload = { name: formState.name, email: formState.email };
             if (formState.password) payload.password = formState.password;
-            const res = await axios.put('http://localhost:5000/users/profile', payload, { headers: { Authorization: `Bearer ${token}` } });
+            const res = await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/users/profile`, payload, { headers: { Authorization: `Bearer ${token}` } });
             const updatedUser = res.data.user;
             // update context and localStorage
             login(updatedUser, token);

@@ -19,7 +19,7 @@ export const CollectionProvider = ({ children }) => {
         setLoading(true);
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:5000/collections", {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/collections`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCollections(res.data);
@@ -37,7 +37,7 @@ export const CollectionProvider = ({ children }) => {
     const createCollection = async (name, description) => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.post("http://localhost:5000/collections", 
+            const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/collections`, 
                 { name, description },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -51,7 +51,7 @@ export const CollectionProvider = ({ children }) => {
     const deleteCollection = async (id) => {
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:5000/collections/${id}`, {
+            await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/collections/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCollections(prev => prev.filter(c => c._id !== id));
@@ -63,7 +63,7 @@ export const CollectionProvider = ({ children }) => {
     const addMovieToCollection = async (collectionId, movie) => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.post(`http://localhost:5000/collections/${collectionId}/movies`,
+            const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/collections/${collectionId}/movies`,
                 {
                     movieId: movie.id.toString(),
                     title: movie.title,
@@ -82,7 +82,7 @@ export const CollectionProvider = ({ children }) => {
     const removeMovieFromCollection = async (collectionId, movieId) => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.delete(`http://localhost:5000/collections/${collectionId}/movies/${movieId}`, {
+            const res = await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/collections/${collectionId}/movies/${movieId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCollections(prev => prev.map(c => c._id === collectionId ? res.data : c));

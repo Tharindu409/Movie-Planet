@@ -12,7 +12,7 @@ const LocalMovieDetails = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/local/movies/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/movies/${id}`);
         setMovie(res.data);
       } catch (err) {
         console.error(err);

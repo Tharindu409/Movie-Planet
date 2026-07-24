@@ -28,7 +28,7 @@ const MovieDetails = () => {
 
   const refreshReviews = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/reviews/${id}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/reviews/${id}`);
       setReviews(res.data.reviews);
       setAvgRating(res.data.averageRating);
     } catch (err) {
@@ -42,7 +42,7 @@ const MovieDetails = () => {
       try {
         const [movieData, reviewsRes] = await Promise.all([
           getMovieDetails(id),
-          axios.get(`http://localhost:5000/reviews/${id}`)
+          axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/reviews/${id}`)
         ]);
         
         setMovie(movieData);
@@ -69,7 +69,7 @@ const MovieDetails = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/reviews",
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/reviews`,
         { movieId: id, rating: userRating, comment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -88,7 +88,7 @@ const MovieDetails = () => {
     if (!window.confirm("Delete this review?")) return;
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/reviews/${reviewId}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/reviews/${reviewId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       await refreshReviews();
@@ -111,7 +111,7 @@ const MovieDetails = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/reviews/${editingId}`, 
+      await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/reviews/${editingId}`, 
         { rating: editRating, comment: editComment },
         { headers: { Authorization: `Bearer ${token}` } }
       );
