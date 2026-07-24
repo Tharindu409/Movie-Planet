@@ -51,8 +51,7 @@ function Navbar() {
                     <Link to="/favourite" className="nav-link">Favourites</Link>
                     <Link to="/watchlist" className="nav-link">Watchlist</Link>
                     <Link to="/collections" className="nav-link">Collections</Link>
-                    <Link to="/local" className="nav-link">Local Movies</Link>
-                    {user?.role === 'admin' && (
+                     {user?.role === 'admin' && (
                         <Link to="/admin" className="nav-link">Admin</Link>
                     )}
                 </div>
@@ -97,7 +96,6 @@ function Navbar() {
                 <Link to="/favourite" className="nav-link" onClick={close}>Favourites</Link>
                 <Link to="/watchlist" className="nav-link" onClick={close}>Watchlist</Link>
                 <Link to="/collections" className="nav-link" onClick={close}>Collections</Link>
-                <Link to="/local" className="nav-link" onClick={close}>Local Movies</Link>
                 {user?.role === 'admin' && (
                     <Link to="/admin" className="nav-link" onClick={close}>Admin</Link>
                 )}
