@@ -12,7 +12,7 @@ const protect = async (req, res, next) => {
 
     const decoded = jwt.verify(
       token,
-      process.env.JWT_SECRET || "your_secret_key"
+      process.env.JWT_SECRET || "JWT_SECRET=movie_app_secret_2026"
     );
 
     req.user = decoded;
