@@ -15,7 +15,7 @@ const CollectionDetails = () => {
     const fetchDetails = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get(`http://localhost:5000/collections/${id}`, {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/collections/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setCollection(res.data);
