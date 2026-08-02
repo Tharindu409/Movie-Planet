@@ -253,3 +253,37 @@
 .navbar.is-open .nav-toggle .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .navbar.is-open .nav-toggle .bar:nth-child(2) { opacity: 0; }
 .navbar.is-open .nav-toggle .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 56px;
+    padding: 0 1rem;
+  }
+
+  .navbar-brand a {
+    font-size: 1.45rem;
+  }
+
+  .nav-drawer {
+    top: 56px;
+    right: -100vw;
+    width: 100vw;
+    height: calc(100vh - 56px);
+    padding: 1.25rem;
+  }
+
+  .nav-drawer.is-open {
+    right: 0;
+  }
+
+  .nav-link {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .btn-signin,
+  .btn-signup,
+  .btn-logout {
+    width: 100%;
+    text-align: center;
+  }
+}

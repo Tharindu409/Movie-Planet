@@ -181,6 +181,49 @@
   }
 }
 
+@media (max-width: 640px) {
+  .details-backdrop {
+    height: 42vh;
+  }
+
+  .details-content {
+    margin-top: -110px;
+    padding: 0 1rem 3rem;
+  }
+
+  .details-poster {
+    width: min(280px, 100%);
+  }
+
+  .text-info h1 {
+    font-size: 2rem;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .overview {
+    font-size: 1rem;
+  }
+
+  .cast-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .review-form-container {
+    padding: 1.25rem;
+  }
+
+  .submit-review-btn {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
 /* Review Section */
 .review-section {
   margin-top: 5rem;
